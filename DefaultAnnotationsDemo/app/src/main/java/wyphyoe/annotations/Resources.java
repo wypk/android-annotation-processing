@@ -14,7 +14,7 @@ import java.util.Objects;
 /**
  * Created by Wai Yan on 12/4/18.
  */
-public class Resource {
+public class Resources {
 
     public static String getMessage(@StringRes int strResId,
                                     Context context) {

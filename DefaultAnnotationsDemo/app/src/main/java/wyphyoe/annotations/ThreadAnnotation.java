@@ -11,4 +11,5 @@ public class ThreadAnnotation {
     public static void downLoadImageDummy(String url) {
         //Do Downloading
     }
+
 }
