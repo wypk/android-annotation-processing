@@ -1,11 +1,15 @@
 package wyphyoe.annotations
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.util.Log.d
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import kotlinx.android.synthetic.main.activity_main.*
 import wyphyoe.annotations.callsuper.Cat
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,7 +36,11 @@ class MainActivity : AppCompatActivity() {
 
             //this.testCallSuper()
 
-            this.testTypedef()
+            //this.testTypedef()
+
+            this.testCombiningFlags()
+
+            //this.testPermissionAnnotation()
         }
     }
 
@@ -91,5 +99,25 @@ class MainActivity : AppCompatActivity() {
     private fun testTypedef() {
         Typedef.setStatus(Typedef.ON)
         Typedef.setStatus(Typedef.OFF)
+    }
+
+    private fun testCombiningFlags() {
+        CombiningFlags.setIntDefFlag(CombiningFlags.DISPLAY_OP_1 or CombiningFlags.DISPLAY_OP_2)
+        CombiningFlags.setIntDefFlag(CombiningFlags.DISPLAY_OP_2 and CombiningFlags.DISPLAY_OP_3)
+    }
+
+    private fun testPermissionAnnotation() {
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.CALL_PHONE
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            PermissionAnnotations.callPhone(this, "09428155046")
+        } else {
+            ActivityCompat.requestPermissions(
+                this
+                , arrayOf(Manifest.permission.CALL_PHONE), 1
+            )
+        }
     }
 }
