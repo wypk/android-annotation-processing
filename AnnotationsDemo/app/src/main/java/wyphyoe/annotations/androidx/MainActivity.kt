@@ -10,6 +10,7 @@ import androidx.core.app.ActivityCompat
 import kotlinx.android.synthetic.main.activity_main.*
 import wyphyoe.annotations.R
 import wyphyoe.annotations.androidx.callsuper.Cat
+import wyphyoe.annotations.androidx.javaannotations.override.ChildClass
 
 
 class MainActivity : AppCompatActivity() {
@@ -24,6 +25,8 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener {
+
+            //this.testOverride()
 
             //this.testNullness()
 
@@ -45,6 +48,11 @@ class MainActivity : AppCompatActivity() {
 
             //this.testKeep()
         }
+    }
+
+    private fun testOverride() {
+        val childClass = ChildClass()
+        childClass.doSomething()
     }
 
     private fun testNullness() {
