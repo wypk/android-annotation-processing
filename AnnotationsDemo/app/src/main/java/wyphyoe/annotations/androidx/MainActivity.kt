@@ -99,7 +99,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun testReturnValue() {
 
-        //  ReturnValue.testReturnValue("Wai ", "Yan")
+        // ReturnValue.testReturnValue("Wai ", "Yan")
         Log.d("RETURN-VALUE", "Return value " + ReturnValue.testReturnValue("Wai ", "Yan"))
     }
 
